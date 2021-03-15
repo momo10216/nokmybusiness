@@ -3,7 +3,7 @@
 * @version	$Id$
 * @package	Joomla
 * @subpackage	NokMyBusiness-Customer
-* @copyright	Copyright (c) 2014 Norbert Kuemin. All rights reserved.
+* @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
 * @authorEmail	momo_102@bluemail.ch
@@ -25,14 +25,9 @@ class NoKMyBusinessViewCustomer extends JViewLegacy {
 		$this->form	= $this->get('Form');
 		$this->item	= $this->get('Item');
 		$this->state	= $this->get('State');
-		if (is_object($this->item)) {
-			$this->canDo	= NoKMyBusinessHelper::getActions('com_nokmybusiness', 'customer', $this->item->id);
-		} else {
-			$this->canDo	= NoKMyBusinessHelper::getActions('com_nokmybusiness', 'customer');
-		}
+		$this->canDo	= NoKMyBusinessHelper::getActions('com_clubmanagement', 'person', $this->item->id);
 		// Check for errors.
-		$errors = $this->get('Errors');
-		if ($errors && is_array($errors) && (count($errors) > 0)) {
+		if (count($errors = $this->get('Errors'))) {
 			JError::raiseError(500, implode("\n", $errors));
 			return false;
 		}
@@ -47,13 +42,9 @@ class NoKMyBusinessViewCustomer extends JViewLegacy {
 	 */
 	protected function addToolbar() {
 		JFactory::getApplication()->input->set('hidemainmenu', true);
-		$user		= JFactory::getUser();
-		$userId		= $user->get('id');
-		if (is_object($this->item)) {
-			$isNew = ($this->item->id == 0);
-		} else {
-			$isNew = true;
-		}
+		$user = JFactory::getUser();
+		$username = $user->get('name');
+		$isNew = ($this->item->id == 0);
 		// Built the actions for new and existing records.
 		$canDo		= $this->canDo;
 		JToolbarHelper::title(($isNew ? JText::_('COM_NOKMYBUSINESS_PERSONS_PAGE_ADD') : JText::_('COM_NOKMYBUSINESS_PERSONS_PAGE_EDIT')), 'pencil-2 article-add');
@@ -66,7 +57,7 @@ class NoKMyBusinessViewCustomer extends JViewLegacy {
 			JToolbarHelper::cancel('customer.cancel');
 		} else {
 			// Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
-			if ($canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == $userId)) {
+			if ($canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == $username)) {
 				JToolbarHelper::apply('customer.apply');
 				JToolbarHelper::save('customer.save');
 				// We can save this record, but check the create permission to see if we can return to make a new one.

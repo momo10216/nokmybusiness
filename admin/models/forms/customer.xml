@@ -80,7 +80,7 @@
 			cols="40" rows="7"
 			required="false" />
 
-		<field name="birthday" type="cmdate" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHDAY_LABEL"
+		<field name="birthday" type="nokdate" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHDAY_LABEL"
 			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHDAY_DESC"
 			default=""
 			directory=""
@@ -95,31 +95,31 @@
 			<option value="INACTIVE">COM_NOKMYBUSINESS_INACTIVE</option>
 		</field>
 
-		<field name="custom1" type="cmcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM1_LABEL"
+		<field name="custom1" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM1_LABEL"
 			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM1_DESC"
 			default=""
 			size="40"
 			required="false" />
 
-		<field name="custom2" type="cmcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM2_LABEL"
+		<field name="custom2" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM2_LABEL"
 			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM2_DESC"
 			default=""
 			size="40"
 			required="false" />
 
-		<field name="custom3" type="cmcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM3_LABEL"
+		<field name="custom3" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM3_LABEL"
 			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM3_DESC"
 			default=""
 			size="40"
 			required="false" />
 
-		<field name="custom4" type="cmcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM4_LABEL"
+		<field name="custom4" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM4_LABEL"
 			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM4_DESC"
 			default=""
 			size="40"
 			required="false" />
 
-		<field name="custom5" type="cmcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM5_LABEL"
+		<field name="custom5" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM5_LABEL"
 			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM5_DESC"
 			default=""
 			size="40"

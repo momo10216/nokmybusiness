@@ -3,7 +3,7 @@
 * @version	$Id$
 * @package	Joomla
 * @subpackage	NokMyBusiness-Customer
-* @copyright	Copyright (c) 2014 Norbert Kuemin. All rights reserved.
+* @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
 * @authorEmail	momo_102@bluemail.ch
@@ -12,7 +12,7 @@
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die('Restricted access');
 
-class ClubManagementModelPerson extends JModelAdmin {
+class NokMyBusinessModelCustomer extends JModelAdmin {
 	protected $text_prefix = 'COM_NOKMYBUSINESS';
 	public $typeAlias = 'com_nokmybusiness.customer';
 
@@ -27,7 +27,7 @@ class ClubManagementModelPerson extends JModelAdmin {
 	protected function canDelete($record) {
 		if (!empty($record->id)) {
 			$user = JFactory::getUser();
-			return $user->authorise('core.delete', $this->typeAlias.'.' . (int) $record->id);
+			return $user->authorise('core.delete', $this->typeAlias.'.'.(int) $record->id);
 		}
 	}
 
@@ -43,7 +43,7 @@ class ClubManagementModelPerson extends JModelAdmin {
 		$user = JFactory::getUser();
 		// Check for existing article.
 		if (!empty($record->id)) {
-			return $user->authorise('core.edit.state', $this->typeAlias.'.' . (int) $record->id);
+			return $user->authorise('core.edit.state', $this->typeAlias.'.'.(int) $record->id);
 		} else {
 			// Default to component settings if neither article nor category known.
 			return parent::canEditState('com_nokmybusiness');
