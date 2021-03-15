@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="common"
+		  label="COM_NOKMYBUSINESS_CONFIGSET_COMMON_LABEL"
+		  description="COM_NOKMYBUSINESS_CONFIGSET_COMMON_DESC">
+		<field name="order_state" type="text" default="QUOTE=COM_NOKMYBUSINESS_ORDER_STATUS_QUOTE;CONFIRMED=COM_NOKMYBUSINESS_ORDER_STATUS_CONFIRMED;DELIVERED=COM_NOKMYBUSINESS_ORDER_STATUS_DELIVERD;CLOSED=COM_NOKMYBUSINESS_ORDER_STATUS_CLOSED" label="COM_NOKMYBUSINESS_CONFIGFIELD_ORDER_STATE_LABEL" description="COM_NOKMYBUSINESS_CONFIGFIELD_ORDER_STATE_DESC"/>
+	</fieldset>
+
+	<fieldset name="customfields"
+		  label="COM_NOKMYBUSINESS_CONFIGSET_CUSTOM_LABEL"
+		  description="COM_NOKMYBUSINESS_CONFIGSET_CUSTOM_DESC">
+		<field name="custom1" type="text" default="Custom field 1" label="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_1_LABEL" description="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_1_DESC"/>
+		<field name="custom2" type="text" default="Custom field 2" label="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_2_LABEL" description="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_2_DESC"/>
+		<field name="custom3" type="text" default="Custom field 3" label="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_3_LABEL" description="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_3_DESC"/>
+		<field name="custom4" type="text" default="Custom field 4" label="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_4_LABEL" description="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_4_DESC"/>
+		<field name="custom5" type="text" default="Custom field 5" label="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_5_LABEL" description="COM_NOKMYBUSINESS_CONFIGFIELD_CUSTOM_5_DESC"/>
+	</fieldset>
+</config>
