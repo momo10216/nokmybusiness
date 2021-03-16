@@ -41,7 +41,7 @@ class NoKMyBusinessHelper extends JHelperContent {
 		);
 */
 	}
-/*
+
 	public static function exportData($model) {
 		$export_columns = $model->getExportColumns();
 		$known_fields = $model->getFieldMapping();
@@ -173,6 +173,5 @@ class NoKMyBusinessHelper extends JHelperContent {
 		}
 		return $row;
 	}
-*/
 }
 ?>

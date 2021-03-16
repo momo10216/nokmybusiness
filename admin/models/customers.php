@@ -105,6 +105,7 @@ class NokMyBusinessModelCustomers extends JModelList {
         public function getFieldMapping() {
 		return array (
 			'title'=>'c.title',
+			'number'=>'c.number',
 			'name'=>'c.name',
 			'birthname'=>'c.birthname',
 			'firstname'=>'c.firstname',
@@ -137,7 +138,7 @@ class NokMyBusinessModelCustomers extends JModelList {
         public function getExportColumns() {
 		return array (
 			'title', 'name', 'birthname', 'firstname', 'address', 'zip', 'city', 'state', 'country',
-			'number', 'birthday', 'telephone', 'mobile', 'email', 'url', 'username', 'status',
+			'number', 'birthday', 'telephone', 'mobile', 'email', 'url', 'user_username', 'status',
 			'custom1', 'custom2', 'custom3', 'custom4', 'custom5',
 			'description', 'createdby', 'createddate', 'modifiedby', 'modifieddate');
 	}
@@ -155,7 +156,7 @@ class NokMyBusinessModelCustomers extends JModelList {
         public function getForeignKeys() {
 		return array (
 			'u' => array (
-				'localKeyField' => 'user_id',
+				'localKeyField' => 'user_username',
 				'remoteTable' => '#__users',
 				'remoteKeyField' => 'id',
 				'remoteUniqueKey' => array('username')
@@ -187,7 +188,7 @@ class NokMyBusinessModelCustomers extends JModelList {
          * @return      string  An SQL query
          */
         public function getExportData() {
-		return ClubManagementHelper::exportData($this);
+		return NokMyBusinessHelper::exportData($this);
 	}
 
         /**
@@ -199,14 +200,14 @@ class NokMyBusinessModelCustomers extends JModelList {
 		$header = array_shift($data);
 		$data_stage1 = array();
 		foreach ($data as $entry) {
-			$row = ClubManagementHelper::getNamedArray($header, $entry);
+			$row = NokMyBusinessHelper::getNamedArray($header, $entry);
 			array_push($data_stage1, $entry);
 		}
 		$this->saveImportData_stage($header, $data_stage1);
 	}
 
         private function saveImportData_stage($header, $data) {
-		ClubManagementHelper::importData($this, $header, $data);
+		NokMyBusinessHelper::importData($this, $header, $data);
 	}
 
 }
