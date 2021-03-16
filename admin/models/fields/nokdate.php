@@ -2,8 +2,8 @@
 /**
 * @version	$Id$
 * @package	Joomla
-* @subpackage	ClubManagement-Person
-* @copyright	Copyright (c) 2014 Norbert Kuemin. All rights reserved.
+* @subpackage	NoKMyBusiness-Customer
+* @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
 * @authorEmail	momo_102@bluemail.ch
@@ -13,14 +13,14 @@
 defined('_JEXEC') or die('Restricted access');
  
 // The class name must always be the same as the filename (in camel case)
-class JFormFieldCmDate extends JFormField {
+class JFormFieldNoKDate extends JFormField {
 	/**
 	 * The form field type.
 	 *
 	 * @var    string
 	 * @since  11.1
 	 */
-	protected $type = 'cmdate';
+	protected $type = 'nokdate';
 
 	/**
 	 * The allowable maxlength of calendar field.
