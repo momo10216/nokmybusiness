@@ -156,7 +156,7 @@ class NokMyBusinessModelCustomers extends JModelList {
         public function getForeignKeys() {
 		return array (
 			'u' => array (
-				'localKeyField' => 'user_username',
+				'localKeyField' => 'user_id',
 				'remoteTable' => '#__users',
 				'remoteKeyField' => 'id',
 				'remoteUniqueKey' => array('username')

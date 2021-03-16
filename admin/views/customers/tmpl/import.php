@@ -66,6 +66,7 @@ JFactory::getDocument()->addScriptDeclaration($script);
 					<option value="ISO-8859-15">ISO-8859-15</option>
 					<option selected="selected" value="UTF-8">UTF-8</option>
 					<option value="UTF-16">UTF-16</option>
+					<option value="Windows-1252">Windows-1252</option>
 				</select>
 			</div>
 		</div>

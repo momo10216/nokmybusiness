@@ -20,10 +20,13 @@ defined('_JEXEC') or die('Restricted access');
  * @since       3.0
  */
 class CvsHelper {
+	const DEFAULT_DB_OUT_ENCODING = 'UTF-8';
+	const DEFAULT_DB_IN_ENCODING = 'UTF-8';
+
 	public static function saveCVS($data, $encoding, $filename, $delimiter = ';') {
 		$content = self::array2cvs($data, $delimiter);
-		if ($encoding != "utf-8") {
-			$content = iconv("UTF-8", strtoupper($encoding)."//TRANSLIT", $content); 
+		if ($encoding != self::DEFAULT_DB_OUT_ENCODING) {
+			$content = iconv(self::DEFAULT_DB_OUT_ENCODING, strtoupper($encoding)."//TRANSLIT", $content); 
 		}
 		header('Content-Type: application/cvs; charset='.$encoding);
 		header('Content-Length: '.strlen($content));
@@ -38,7 +41,9 @@ class CvsHelper {
 	}
 
 	public static function loadCVS($content, $encoding, $delimiter = ';') {
-		$content = mb_convert_encoding($content, $encoding, 'Windows-1252');
+		if ($encoding != self::DEFAULT_DB_IN_ENCODING) {
+			$content = mb_convert_encoding($content, $encoding, self::DEFAULT_DB_IN_ENCODING);
+		}
 		if (substr($content,0,3) == "\357\273\277") { $content = substr($content,3); } //Remove known BOM
 		return self::cvs2array($content, $delimiter);
 	}

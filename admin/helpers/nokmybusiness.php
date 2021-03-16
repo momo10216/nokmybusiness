@@ -13,7 +13,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 class NoKMyBusinessHelper extends JHelperContent {
-	public static $extension = 'com_clubmanagement';
+	const EXTENSION = 'com_nokmybusiness';
 
 	/**
 	 * Configure the Linkbar.
@@ -25,18 +25,18 @@ class NoKMyBusinessHelper extends JHelperContent {
 	public static function addSubmenu($vName) {
 		JHtmlSidebar::addEntry(
 			JText::_('COM_NOKMYBUSINESS_MENU_CUSTOMERS'),
-			'index.php?option=com_nokmybusiness&view=customers',
+			'index.php?option='.self::EXTENSION.'&view=customers',
 			$vName == 'customers'
 		);
 		JHtmlSidebar::addEntry(
 			JText::_('COM_NOKMYBUSINESS_MENU_PRODUCTS'),
-			'index.php?option=com_nokmybusiness&view=products',
+			'index.php?option='.self::EXTENSION.'&view=products',
 			$vName == 'products'
 		);
 /*
 		JHtmlSidebar::addEntry(
 			JText::_('COM_CLUBMANAGEMENT_MENU_CATEGORIES'),
-			'index.php?option=com_categories&view=categories&extension=com_clubmanagement',
+			'index.php?option=com_categories&view=categories&extension='.self::EXTENSION,
 			$vName == 'categories'
 		);
 */
@@ -48,7 +48,9 @@ class NoKMyBusinessHelper extends JHelperContent {
 		$export_fields = array();
 		foreach ($export_columns as $column)
 		{
-			$export_fields[$column] = $known_fields[$column];
+			if (isset($known_fields[$column])) {
+				$export_fields[$column] = $known_fields[$column];
+			}
 		}
 		$db = JFactory::getDBO();
 		$query = $model->getExportQuery($export_fields);
@@ -73,7 +75,7 @@ class NoKMyBusinessHelper extends JHelperContent {
 					array_push($fields, $db->quoteName(substr($known_fields[$key],2))."=".$db->quote($row[$key]));
 				}
 				array_push($fields, $db->quoteName("modifieddate")."=".JFactory::getDate()->toSql());
-				array_push($fields, $db->quoteName("modifiedby")."=".$userId);
+				array_push($fields, $db->quoteName("modifiedby")."=".$db->quote($userId));
 				$query
 					->update($db->quoteName($model->getTableName()))
 					->set($fields)
@@ -128,7 +130,11 @@ class NoKMyBusinessHelper extends JHelperContent {
 		$expressions = array();
 		foreach (array_keys($primaryKeys) as $key) {
 			$field = $primaryKeys[$key];
-			array_push($expressions,$db->quoteName($field)."=".$db->quote($row[$key]));
+			if (isset($row[$key])) {
+				array_push($expressions,$db->quoteName($field)."=".$db->quote($row[$key]));
+			} else {
+				array_push($expressions,$db->quoteName($field)."=NULL");
+			}
 		}
 		$query = $db->getQuery(true);
 		$where = implode(" AND ",$expressions);

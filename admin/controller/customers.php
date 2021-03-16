@@ -24,8 +24,8 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 	public function export() {
 		$model = $this->getModel('Customers');
  		$data = $model->getExportData();
-		$encoding = "utf-8";
-		$filename = "customers.csv";
+		$encoding = 'UTF-8';
+		$filename = 'customers.csv';
 		JLoader::register('CvsHelper', __DIR__.'/../helpers/cvs.php', true);
 		CvsHelper::saveCVS($data, $encoding, $filename);
         }
@@ -60,7 +60,9 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 	public function delete() {
 		$cid = JFactory::getApplication()->input->get('cid', array(), 'array');
 		$model = $this->getModel('Customer');
-		$model->delete($cid);
+		foreach ($cid as $id) {
+			$model->delete($id);
+		}
 		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
 	}
 }

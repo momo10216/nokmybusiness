@@ -31,7 +31,8 @@ class NoKMyBusinessViewCustomers extends JViewLegacy {
 		$this->pagination = $this->get('Pagination');
 		$this->state = $this->get('State');
 		// Check for errors.
-		if (count($errors = $this->get('Errors'))) {
+		$errors = $this->get('Errors');
+		if (is_array($errors) && count($errors)) {
 			JError::raiseError(500, implode('<br />', $errors));
 			return false;
 		}
@@ -60,10 +61,8 @@ class NoKMyBusinessViewCustomers extends JViewLegacy {
 		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own'))) {
 			JToolbarHelper::editList('customer.edit');
 		}
-		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete')) {
-			JToolbarHelper::deleteList('', 'customer.delete', 'JTOOLBAR_EMPTY_TRASH');
-		} elseif ($canDo->get('core.edit.state')) {
-			JToolbarHelper::trash('customer.delete');
+		if ($canDo->get('core.delete')) {
+			JToolbarHelper::trash('customers.delete');
 		}
 		// Add a export button
 		JToolBarHelper::custom('customers.export', 'export.png', 'export_f2.png', JText::_('JTOOLBAR_EXPORT'), false);
