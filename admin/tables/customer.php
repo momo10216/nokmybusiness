@@ -18,7 +18,7 @@ jimport('joomla.database.table');
 /**
  * Hello Table class
  */
-class NoKMyBusinessTableCustomers extends JTable {
+class NoKMyBusinessTableCustomer extends JTable {
         /**
          * Constructor
          *

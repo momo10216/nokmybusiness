@@ -31,7 +31,7 @@ JHtml::_('behavior.tooltip');
 	<div class="form-horizontal">
 		<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'general')); ?>
 
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_CLUBMANAGEMENT_PERSONS_TAB_COMMON', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_NOKMYBUSINESS_CUSTOMERS_TAB_COMMON', true)); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="row-fluid form-horizontal-desktop">
@@ -51,7 +51,7 @@ JHtml::_('behavior.tooltip');
 		</div>
 		<?php echo JHtml::_('bootstrap.endTab'); ?>
 
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'address', JText::_('COM_CLUBMANAGEMENT_PERSONS_TAB_ADDRESS', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'address', JText::_('COM_NOKMYBUSINESS_CUSTOMERS_TAB_ADDRESS', true)); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="row-fluid form-horizontal-desktop">
@@ -69,7 +69,7 @@ JHtml::_('behavior.tooltip');
 		</div>
 		<?php echo JHtml::_('bootstrap.endTab'); ?>
 
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'communication', JText::_('COM_CLUBMANAGEMENT_PERSONS_TAB_COMMUNICATION', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'communication', JText::_('COM_NOKMYBUSINESS_CUSTOMERS_TAB_COMMUNICATION', true)); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="row-fluid form-horizontal-desktop">
@@ -86,7 +86,7 @@ JHtml::_('behavior.tooltip');
 		</div>
 		<?php echo JHtml::_('bootstrap.endTab'); ?>
 
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'custom', JText::_('COM_CLUBMANAGEMENT_PERSONS_TAB_CUSTOM_AND_RECORDINFO', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'custom', JText::_('COM_NOKMYBUSINESS_CUSTOMERS_TAB_CUSTOM_AND_RECORDINFO', true)); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="row-fluid form-horizontal-desktop">

@@ -47,7 +47,7 @@ class NoKMyBusinessViewCustomer extends JViewLegacy {
 		$isNew = ($this->item->id == 0);
 		// Built the actions for new and existing records.
 		$canDo		= $this->canDo;
-		JToolbarHelper::title(($isNew ? JText::_('COM_NOKMYBUSINESS_PERSONS_PAGE_ADD') : JText::_('COM_NOKMYBUSINESS_PERSONS_PAGE_EDIT')), 'pencil-2 article-add');
+		JToolbarHelper::title(($isNew ? JText::_('COM_NOKMYBUSINESS_CUSTOMERS_PAGE_ADD') : JText::_('COM_NOKMYBUSINESS_CUSTOMERS_PAGE_EDIT')), 'pencil-2 article-add');
 
 		// For new records, check the create permission.
 		if ($isNew && $canDo->get('core.create')) {
@@ -72,7 +72,7 @@ class NoKMyBusinessViewCustomer extends JViewLegacy {
 			JToolbarHelper::cancel('customer.cancel', 'JTOOLBAR_CLOSE');
 		}
 		JToolbarHelper::divider();
-		JToolbarHelper::help('JHELP_COM_NOKMYBUSINESS_PERSON_MANAGER_EDIT');
+		JToolbarHelper::help('JHELP_COM_NOKMYBUSINESS_CUSTOMER_MANAGER_EDIT');
 	}
 }
 ?>
