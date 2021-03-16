@@ -65,10 +65,10 @@ class NoKMyBusinessViewCustomers extends JViewLegacy {
 			JToolbarHelper::trash('customers.delete');
 		}
 		// Add a export button
-		JToolBarHelper::custom('customers.export', 'export.png', 'export_f2.png', JText::_('JTOOLBAR_EXPORT'), false);
+		JToolBarHelper::custom('customers.export', 'download', 'download', JText::_('JTOOLBAR_EXPORT'), false);
 		// Add a import button
 		if ($user->authorise('core.create', 'com_nokmybusiness')) {
-			JToolBarHelper::custom('customers.import', 'import.png', 'import_f2.png', JText::_('JTOOLBAR_IMPORT'), false);
+			JToolBarHelper::custom('customers.import', 'upload', 'upload', JText::_('JTOOLBAR_IMPORT'), false);
 		}
 		if ($user->authorise('core.admin', 'com_nokmybusiness')) {
 			JToolbarHelper::preferences('com_nokmybusiness');
