@@ -50,11 +50,11 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 		$data  = CvsHelper::loadCVS($content, $encoding);
 		$model = $this->getModel('Customers');
  		$model->saveImportData($data);
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=customers', false));
 	}
 
 	public function import_cancel() {
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=customers', false));
 	}
 
 	public function delete() {
@@ -63,7 +63,7 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 		foreach ($cid as $id) {
 			$model->delete($id);
 		}
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=customers's, false));
 	}
 }
 ?>

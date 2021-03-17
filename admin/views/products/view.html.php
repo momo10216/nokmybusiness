@@ -79,7 +79,7 @@ class NoKMyBusinessViewProducts extends JViewLegacy {
 	protected function addToolbarImport() {
 		// Get the toolbar object instance
 		$bar = JToolBar::getInstance('toolbar');
-		JToolbarHelper::title(JText::_('COM_NOKMYBUSINESS_CUSTOMERS_TITLE'), 'stack product');
+		JToolbarHelper::title(JText::_('COM_NOKMYBUSINESS_PRODUCTS_TITLE'), 'stack product');
 		JToolBarHelper::custom('products.import_cancel', 'cancel.png', 'cancel_f2.png', JText::_('JTOOLBAR_CLOSE'), false);
 	}
 

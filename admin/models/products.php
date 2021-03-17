@@ -57,7 +57,7 @@ class NokMyBusinessModelProducts extends JModelList {
                 $query = $db->getQuery(true);
                 // Select some fields from the hello table
                 $query
-                    ->select($db->quoteName(array('p.id', 'p.name', 'p.status', 'p.published', 'p.stock')))
+                    ->select($db->quoteName(array('p.id', 'p.name', 'p.status', 'p.published', 'p.price', 'p.stock')))
                     ->from($db->quoteName('#__nok_mybusiness_products','p'));
 		// special filtering (houshold, excludeid).
 		$whereExtList = array();

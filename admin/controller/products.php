@@ -12,7 +12,7 @@
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die('Restricted access');
 
-class NoKMyBusinessControllerCustomers extends JControllerAdmin {
+class NoKMyBusinessControllerProducts extends JControllerAdmin {
 	public function getModel($name = 'Product', $prefix = 'NoKMyBusinessModel', $config = array('ignore_request' => true)) {
 		$model = parent::getModel($name, $prefix, $config);
 		return $model;
@@ -50,11 +50,11 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 		$data  = CvsHelper::loadCVS($content, $encoding);
 		$model = $this->getModel('Products');
  		$model->saveImportData($data);
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=products', false));
 	}
 
 	public function import_cancel() {
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=products', false));
 	}
 
 	public function delete() {
@@ -63,7 +63,7 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 		foreach ($cid as $id) {
 			$model->delete($id);
 		}
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=products', false));
 	}
 }
 ?>
