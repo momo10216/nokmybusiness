@@ -145,7 +145,7 @@ class NokMyBusinessModelProducts extends JModelList {
                 $query = $db->getQuery(true);
                 $query
                 	->select($db->quoteName(array_values($export_fields)))
-                	->from($db->quoteName($this->getTableName(),'p'))
+                	->from($db->quoteName($this->getTableName(),'p'));
 		return $query;
 	}
 

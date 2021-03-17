@@ -2,7 +2,7 @@
 /**
 * @version	$Id$
 * @package	Joomla
-* @subpackage	NokMyBusiness-Customer
+* @subpackage	NoKMyBusiness-Product
 * @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
@@ -14,6 +14,6 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 <tr>
-        <td colspan="4"><?php echo $this->pagination->getListFooter(); ?></td>
+        <td colspan="6"><?php echo $this->pagination->getListFooter(); ?></td>
 </tr>
 

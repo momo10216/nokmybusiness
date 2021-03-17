@@ -2,7 +2,7 @@
 /**
 * @version	$Id$
 * @package	Joomla
-* @subpackage	NokMyBusiness-Customer
+* @subpackage	NokMyBusiness-Product
 * @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
@@ -13,7 +13,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 class NoKMyBusinessControllerCustomers extends JControllerAdmin {
-	public function getModel($name = 'Customer', $prefix = 'NoKMyBusinessModel', $config = array('ignore_request' => true)) {
+	public function getModel($name = 'Product', $prefix = 'NoKMyBusinessModel', $config = array('ignore_request' => true)) {
 		$model = parent::getModel($name, $prefix, $config);
 		return $model;
 	}
@@ -22,16 +22,16 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 	}
 
 	public function export() {
-		$model = $this->getModel('Customers');
+		$model = $this->getModel('Products');
  		$data = $model->getExportData();
 		$encoding = 'UTF-8';
-		$filename = 'customers.csv';
+		$filename = 'products.csv';
 		JLoader::register('CvsHelper', __DIR__.'/../helpers/cvs.php', true);
 		CvsHelper::saveCVS($data, $encoding, $filename);
         }
 
 	public function import() {
-		$view = $this->getView('Customers', 'html');
+		$view = $this->getView('Products', 'html');
 		$view->setLayout('import');
 		$view->display();
 	}
@@ -48,7 +48,7 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 		$encoding = $input->get('encoding');
 		JLoader::register('CvsHelper', __DIR__.'/../helpers/cvs.php', true);
 		$data  = CvsHelper::loadCVS($content, $encoding);
-		$model = $this->getModel('Customers');
+		$model = $this->getModel('Products');
  		$model->saveImportData($data);
 		$this->setRedirect(JRoute::_('index.php?option='.$this->option, false));
 	}
@@ -59,7 +59,7 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 
 	public function delete() {
 		$cid = JFactory::getApplication()->input->get('cid', array(), 'array');
-		$model = $this->getModel('Customer');
+		$model = $this->getModel('Product');
 		foreach ($cid as $id) {
 			$model->delete($id);
 		}

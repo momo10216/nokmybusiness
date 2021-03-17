@@ -5,89 +5,34 @@
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true" />
 
-		<field name="title" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_TITLE_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_TITLE_DESC"
-			size="25"
-			required="false" />
+		<field name="published" type="list" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PUBLISHED_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PUBLISHED_DESC"
+			size="1"
+			default="1">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
 
-		<field name="name" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_NAME_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_NAME_DESC"
+		<field name="name" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_DESC"
 			size="40"
 			required="true" />
 
-		<field name="birthname" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHNAME_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHNAME_DESC"
-			size="40"
+		<field name="catid" type="category" extension="com_nokmybusiness" class="inputbox" default=""
+			label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CATID_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CATID_DESC"
+			required="false"
+		>
+			<option value="0">JOPTION_SELECT_CATEGORY</option>
+		</field>
+
+		<field name="description" type="editor" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_DESCRIPTION_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_DESCRIPTION_DESC"
+			width="300" filter="safehtml"
 			required="false" />
 
-		<field name="firstname" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_FIRSTNAME_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_FIRSTNAME_DESC"
-			size="40"
-			required="false" />
-
-		<field name="address" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_ADDRESS_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_ADDRESS_DESC"
-			size="40"
-			required="false" />
-
-		<field name="zip" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_ZIP_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_ZIP_DESC"
-			size="10"
-			required="false" />
-
-		<field name="city" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CITY_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CITY_DESC"
-			size="40"
-			required="true" />
-
-		<field name="state" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_STATE_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_STATE_DESC"
-			size="40"
-			required="false" />
-
-		<field name="country" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_COUNTRY_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_COUNTRY_DESC"
-			size="40"
-			required="true" />
-
-		<field name="telephone" type="tel" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_TELEPHONE_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_TELEPHONE_DESC"
-			size="25"
-			required="false" />
-
-		<field name="mobile" type="tel" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_MOBILE_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_MOBILE_DESC"
-			size="25"
-			required="false" />
-
-		<field name="url" type="URL" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_URL_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_URL_DESC"
-			size="40"
-			required="false" />
-
-		<field name="email" type="email" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_EMAIL_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_EMAIL_DESC"
-			size="40"
-			required="false" />
-
-		<field name="user_id" type="user" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_USERNAME_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_USERNAME_DESC"
-			size="40"
-			required="false" />
-
-		<field name="description" type="textarea" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_DESCRIPTION_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_DESCRIPTION_DESC"
-			cols="40" rows="7"
-			required="false" />
-
-		<field name="birthday" type="nokdate" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHDAY_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_BIRTHDAY_DESC"
-			default=""
-			directory=""
-			required="false" />
-
-		<field name="status" type="list" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_STATUS_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_STATUS_DESC"
+		<field name="status" type="list" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STATUS_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STATUS_DESC"
 			class="inputbox"
 			default=""
 			required="false">
@@ -95,55 +40,45 @@
 			<option value="INACTIVE">COM_NOKMYBUSINESS_INACTIVE</option>
 		</field>
 
-		<field name="custom1" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM1_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM1_DESC"
-			default=""
-			size="40"
-			required="false" />
+		<field name="stock" type="integer" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STOCK_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STOCK_DESC"
+			first="0" last="9999999999" step="1"
+			required="true" />
 
-		<field name="custom2" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM2_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM2_DESC"
-			default=""
-			size="40"
-			required="false" />
+		<field name="price" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PRICE_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PRICE_DESC"
+			size="10" pattern="^\d{1,8}(\.\d{1,2})?$"
+			required="true" />
 
-		<field name="custom3" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM3_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM3_DESC"
-			default=""
-			size="40"
-			required="false" />
+		<field name="vat" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_VAT_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_VAT_DESC"
+			size="6" pattern="^\d{1,3}(\.\d{1,2})?$"
+			required="true" />
 
-		<field name="custom4" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM4_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM4_DESC"
-			default=""
-			size="40"
-			required="false" />
+		<field name="picture" type="media" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PICTURE_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PICTURE_DESC"
+			preview="true" preview_width="200" preview_height="200"
+			required="true" />
 
-		<field name="custom5" type="nokcustom" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM5_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CUSTOM5_DESC"
-			default=""
-			size="40"
-			required="false" />
-
-		<field name="createdby" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CREATEDBY_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CREATEDBY_DESC"
+		<field name="createdby" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CREATEDBY_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CREATEDBY_DESC"
 			required="false"
 			readonly="true" />
 
-		<field name="createddate" type="calendar" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CREATEDDATE_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_CREATEDDATE_DESC"
+		<field name="createddate" type="calendar" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CREATEDDATE_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CREATEDDATE_DESC"
 			size="22"
 			format="%Y-%m-%d %H:%M:%S" filter="user_utc"
 			required="false"
 			readonly="true" />
 
-		<field name="modifiedby" type="text" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_MODIFIEDBY_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_MODIFIEDBY_DESC"
+		<field name="modifiedby" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_MODIFIEDBY_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_MODIFIEDBY_DESC"
 			required="false"
 			readonly="true" />
 
-		<field name="modifieddate" type="calendar" label="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_MODIFIEDDATE_LABEL"
-			description="COM_NOKMYBUSINESS_CUSTOMERS_FIELD_MODIFIEDDATE_DESC"
+		<field name="modifieddate" type="calendar" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_MODIFIEDDATE_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_MODIFIEDDATE_DESC"
 			size="22"
 			format="%Y-%m-%d %H:%M:%S" filter="user_utc"
 			required="false"

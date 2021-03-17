@@ -2,7 +2,7 @@
 /**
 * @version	$Id$
 * @package	Joomla
-* @subpackage	NokMyBusiness-Customer
+* @subpackage	NokMyBusiness-Product
 * @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
@@ -17,12 +17,12 @@ JHtml::_('behavior.multiselect');
 JHtml::_('formbehavior.chosen', 'select');
 
 $app = JFactory::getApplication();
-$function	= $app->input->getCmd('function', 'jSelectCustomer');
+$function	= $app->input->getCmd('function', 'jSelectProduct');
 $listDirn	= $this->escape($this->state->get('list.direction'));
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $sortFields	= $this->getSortFields();
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_nokmybusiness&view=customers&layout=modal&tmpl=component&function='.$function.'&'.JSession::getFormToken().'=1'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_nokmybusiness&view=products&layout=modal&tmpl=component&function='.$function.'&'.JSession::getFormToken().'=1'); ?>" method="post" name="adminForm" id="adminForm">
 <?php echo $this->loadTemplate('filter');?>
 		<div class="clearfix"> </div>
 		<table class="table table-striped table-condensed">

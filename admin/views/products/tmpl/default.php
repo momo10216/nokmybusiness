@@ -2,7 +2,7 @@
 /**
 * @version	$Id$
 * @package	Joomla
-* @subpackage	NokMyBusiness-Customer
+* @subpackage	NokMyBusiness-Product
 * @copyright	Copyright (c) 2021 Norbert Kuemin. All rights reserved.
 * @license	http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE
 * @author	Norbert Kuemin
@@ -11,21 +11,54 @@
 
 // Check to ensure this file is included in Joomla!
 defined('_JEXEC') or die('Restricted access');
-
+ 
 JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
 JHtml::_('formbehavior.chosen', 'select');
 
-$app = JFactory::getApplication();
-$function	= $app->input->getCmd('function', 'jSelectCustomer');
 $listDirn	= $this->escape($this->state->get('list.direction'));
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $sortFields	= $this->getSortFields();
+
+$script = <<<EOD
+/* <![CDATA[ */
+Joomla.submitbutton = function(pressbutton) {
+	submitform(pressbutton);
+	return true;
+}
+/* ]]> */
+EOD;
+JFactory::getDocument()->addScriptDeclaration($script);
+$script = "/* <![CDATA[ */
+Joomla.orderTable = function()
+{
+	table = document.getElementById(\"sortTable\");
+	direction = document.getElementById(\"directionTable\");
+	order = table.options[table.selectedIndex].value;
+	if (order != '".$listOrder."')
+	{
+		dirn = 'asc';
+	}
+	else
+	{
+		dirn = direction.options[direction.selectedIndex].value;
+	}
+	Joomla.tableOrdering(order, dirn, '');
+}";
+JFactory::getDocument()->addScriptDeclaration($script);
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_nokmybusiness&view=customers&layout=modal&tmpl=component&function='.$function.'&'.JSession::getFormToken().'=1'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_nokmybusiness&view=products'); ?>" method="post" name="adminForm" id="adminForm">
+<?php if (!empty( $this->sidebar)) : ?>
+	<div id="j-sidebar-container" class="span2">
+		<?php echo $this->sidebar; ?>
+	</div>
+	<div id="j-main-container" class="span10">
+<?php else : ?>
+	<div id="j-main-container">
+<?php endif;?>
 <?php echo $this->loadTemplate('filter');?>
 		<div class="clearfix"> </div>
-		<table class="table table-striped table-condensed">
+		<table class="table table-striped">
 		        <thead><?php echo $this->loadTemplate('head');?></thead>
 		        <tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
 		        <tbody><?php echo $this->loadTemplate('body');?></tbody>
