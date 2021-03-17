@@ -33,13 +33,11 @@ class NoKMyBusinessHelper extends JHelperContent {
 			'index.php?option='.self::EXTENSION.'&view=products',
 			$vName == 'products'
 		);
-/*
 		JHtmlSidebar::addEntry(
-			JText::_('COM_CLUBMANAGEMENT_MENU_CATEGORIES'),
+			JText::_('COM_NOKMYBUSINESS_MENU_CATEGORIES'),
 			'index.php?option=com_categories&view=categories&extension='.self::EXTENSION,
 			$vName == 'categories'
 		);
-*/
 	}
 
 	public static function exportData($model) {

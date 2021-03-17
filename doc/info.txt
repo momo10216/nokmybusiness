@@ -2,3 +2,6 @@ Icons
 =====
 https://docs.joomla.org/J3.x:Joomla_Standard_Icomoon_Fonts
 
+Input types
+===========
+https://docs.joomla.org/Standard_form_field_types

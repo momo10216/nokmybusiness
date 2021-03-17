@@ -23,6 +23,9 @@ $listOrder	= $this->escape($this->state->get('list.ordering'));
 		<?php echo JHtml::_('grid.sort', 'COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_LABEL', 'c.name', $listDirn, $listOrder); ?>
 	</th>
 	<th>
+		<?php echo JHtml::_('grid.sort', 'COM_NOKMYBUSINESS_PRODUCTS_FIELD_NUMBER_LABEL', 'c.price', $listDirn, $listOrder); ?>
+	</th>
+	<th>
 		<?php echo JHtml::_('grid.sort', 'COM_NOKMYBUSINESS_PRODUCTS_FIELD_PRICE_LABEL', 'c.price', $listDirn, $listOrder); ?>
 	</th>
 	<th>

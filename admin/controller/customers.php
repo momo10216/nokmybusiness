@@ -63,7 +63,7 @@ class NoKMyBusinessControllerCustomers extends JControllerAdmin {
 		foreach ($cid as $id) {
 			$model->delete($id);
 		}
-		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=customers's, false));
+		$this->setRedirect(JRoute::_('index.php?option='.$this->option.'&view=customers', false));
 	}
 }
 ?>

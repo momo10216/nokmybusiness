@@ -22,6 +22,9 @@ defined('_JEXEC') or die('Restricted access');
                         <?php echo $item->name; ?>
                 </td>
                 <td>
+                        <?php echo $item->number; ?>
+                </td>
+                <td>
                         <?php echo $item->price; ?>
                 </td>
                 <td>

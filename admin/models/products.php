@@ -24,6 +24,7 @@ class NokMyBusinessModelProducts extends JModelList {
 			$config['filter_fields'] = array(
 				'id', 'p.id',
 				'name', 'p.name',
+				'number', 'p.number',
 				'status', 'p.status',
 				'stock', 'p.stock',
 				'createddate', 'c.createddate',
@@ -57,7 +58,7 @@ class NokMyBusinessModelProducts extends JModelList {
                 $query = $db->getQuery(true);
                 // Select some fields from the hello table
                 $query
-                    ->select($db->quoteName(array('p.id', 'p.name', 'p.status', 'p.published', 'p.price', 'p.stock')))
+                    ->select($db->quoteName(array('p.id', 'p.name', 'p.number', 'p.status', 'p.published', 'p.price', 'p.stock')))
                     ->from($db->quoteName('#__nok_mybusiness_products','p'));
 		// special filtering (houshold, excludeid).
 		$whereExtList = array();
@@ -74,7 +75,7 @@ class NokMyBusinessModelProducts extends JModelList {
 				$query->where('p.id = ' . (int) substr($search, 3).$whereExt);
 			} else {
 				$search = $db->quote('%' . $db->escape($search, true) . '%');
-				$query->where('(c.name LIKE '.$search.')'.$whereExt);
+				$query->where('(c.name LIKE '.$search.' OR c.number LIKE '.$search.')'.$whereExt);
 			}
 		} else {
 			if (!empty($whereExt)) {
@@ -100,15 +101,20 @@ class NokMyBusinessModelProducts extends JModelList {
          */
         public function getFieldMapping() {
 		return array (
-			'name'=>'p.name',
-			'published'=>'p.published',
 			'catid'=>'p.catid',
+			'name'=>'p.name',
+			'number'=>'p.number',
+			'shorttext'=>'p.shorttext',
 			'description'=>'p.description',
-			'status'=>'p.status',
-			'stock'=>'p.stock',
+			'picture'=>'p.picture',
+			'power'=>'p.power',
+			'dimensions'=>'p.dimensions',
+			'protection'=>'p.protection',
 			'price'=>'p.price',
 			'vat'=>'p.vat',
-			'picture'=>'p.picture',
+			'stock'=>'p.stock',
+			'published'=>'p.published',
+			'status'=>'p.status',
 			'createdby'=>'p.createdby',
 			'createddate'=>'p.createddate',
 			'modifiedby'=>'p.modifiedby',
@@ -118,13 +124,14 @@ class NokMyBusinessModelProducts extends JModelList {
 
         public function getExportColumns() {
 		return array (
-			'name', 'published', 'catid', 'description', 'status', 'stock', 'price', 'vat', 'picture',
+			'catid', 'name', 'number', 'shorttext', 'description', 'picture',
+			'power', 'dimensions', 'protection', 'price', 'vat', 'stock', 'published', 'status', 
 			'createdby', 'createddate', 'modifiedby', 'modifieddate');
 	}
 
         public function getImportPrimaryFields() {
 		return array (
-			'name'=>'name'
+			'number'=>'number'
 		);
 	}
 

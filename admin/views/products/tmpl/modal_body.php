@@ -22,6 +22,9 @@ $function	= $app->input->getCmd('function', 'jSelectProduct');
                         <?php echo $item->name; ?></a>
                 </td>
                 <td>
+                        <?php echo $item->number; ?>
+                </td>
+                <td>
                         <?php echo $item->price; ?>
                 </td>
                 <td>

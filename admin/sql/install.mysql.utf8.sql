@@ -34,22 +34,28 @@ CREATE TABLE IF NOT EXISTS `#__nok_mybusiness_customers` (
 
 CREATE TABLE IF NOT EXISTS `#__nok_mybusiness_products` (
   `id` integer NOT NULL auto_increment,
-  `published` int(1) NOT NULL default 0,
-  `name` varchar(100) NOT NULL default '',
   `catid` int(11) NOT NULL DEFAULT '0',
-  `description` text default NULL,
-  `status` ENUM('INACTIVE', 'ACTIVE') NOT NULL default 'INACTIVE',
-  `stock` integer default NULL,
-  `price` float default NULL,
-  `vat` float default NULL,
+  `name` varchar(100) NOT NULL default '',
+  `number` varchar(100) NOT NULL default '',
+  `shorttext` text NULL default NULL,
+  `description` text NULL default NULL,
   `picture` varchar(255) NULL default NULL,
+  `power` integer NULL default NULL,
+  `dimensions` varchar(100) NULL default NULL,
+  `protection` varchar(100) NULL default NULL,
+  `price` float NULL default NULL,
+  `vat` float NULL default NULL,
+  `stock` integer NULL default NULL,
+  `published` int(1) NOT NULL default 0,
+  `status` ENUM('INACTIVE', 'ACTIVE') NOT NULL default 'INACTIVE',
   `createdby` varchar(50) NOT NULL default '',
   `createddate` datetime NOT NULL default current_timestamp,
   `modifiedby` varchar(50) NOT NULL default '',
   `modifieddate` datetime NOT NULL default current_timestamp,
   PRIMARY KEY  (`id`),
-  KEY `idx_remote` (`name`)
+  KEY `idx_remote` (`number`)
 )  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 /*
 CREATE TABLE IF NOT EXISTS `#__nok_mybusiness_orders` (
   `id` integer NOT NULL auto_increment,

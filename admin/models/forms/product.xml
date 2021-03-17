@@ -5,19 +5,6 @@
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true" />
 
-		<field name="published" type="list" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PUBLISHED_LABEL"
-			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PUBLISHED_DESC"
-			size="1"
-			default="1">
-			<option value="1">JYES</option>
-			<option value="0">JNO</option>
-		</field>
-
-		<field name="name" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_LABEL"
-			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_DESC"
-			size="40"
-			required="true" />
-
 		<field name="catid" type="category" extension="com_nokmybusiness" class="inputbox" default=""
 			label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CATID_LABEL"
 			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CATID_DESC"
@@ -26,23 +13,44 @@
 			<option value="0">JOPTION_SELECT_CATEGORY</option>
 		</field>
 
+		<field name="name" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NAME_DESC"
+			size="40"
+			required="true" />
+
+		<field name="number" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NUMBER_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_NUMBER_DESC"
+			size="40"
+			required="true" />
+
+		<field name="shorttext" type="textarea" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_SHORTTEXT_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_SHORTTEXT_DESC"
+			rows="5" cols="80"
+			required="false" />
+
 		<field name="description" type="editor" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_DESCRIPTION_LABEL"
 			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_DESCRIPTION_DESC"
 			width="300" filter="safehtml"
 			required="false" />
 
-		<field name="status" type="list" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STATUS_LABEL"
-			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STATUS_DESC"
-			class="inputbox"
-			default=""
-			required="false">
-			<option value="ACTIVE">COM_NOKMYBUSINESS_ACTIVE</option>
-			<option value="INACTIVE">COM_NOKMYBUSINESS_INACTIVE</option>
-		</field>
+		<field name="picture" type="media" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PICTURE_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PICTURE_DESC"
+			preview="tooltip"
+			required="true" />
 
-		<field name="stock" type="number" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STOCK_LABEL"
-			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STOCK_DESC"
-			min="0" max="9999999999" step="1"
+		<field name="power" type="number" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_POWER_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_POWER_DESC"
+			min="0" max="99999" step="1"
+			required="true" />
+
+		<field name="dimensions" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_DIMENSIONS_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_DIMENSIONS_DESC"
+			size="40"
+			required="true" />
+
+		<field name="protection" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PROTECTION_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PROTECTION_DESC"
+			size="40"
 			required="true" />
 
 		<field name="price" type="number" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PRICE_LABEL"
@@ -55,10 +63,27 @@
 			min="0" max="100" step="any"
 			required="true" />
 
-		<field name="picture" type="media" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PICTURE_LABEL"
-			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PICTURE_DESC"
-			preview="tooltip"
+		<field name="stock" type="number" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STOCK_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STOCK_DESC"
+			min="0" max="9999999999" step="1"
 			required="true" />
+
+		<field name="published" type="list" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PUBLISHED_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_PUBLISHED_DESC"
+			size="1"
+			default="1">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="status" type="list" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STATUS_LABEL"
+			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_STATUS_DESC"
+			class="inputbox"
+			default=""
+			required="false">
+			<option value="ACTIVE">COM_NOKMYBUSINESS_ACTIVE</option>
+			<option value="INACTIVE">COM_NOKMYBUSINESS_INACTIVE</option>
+		</field>
 
 		<field name="createdby" type="text" label="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CREATEDBY_LABEL"
 			description="COM_NOKMYBUSINESS_PRODUCTS_FIELD_CREATEDBY_DESC"
